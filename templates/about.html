@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 
-  <div align="center"><a href="/"><img src="/static/vendor/bootstrap/img/open_house.gif" width = "10%" height="10%"></a></div>
+  <div align="center"><a href="/"><img src="/static/vendor/bootstrap/img/open_house.gif" width = "20%" height="20%"></a></div>
 
   <p></p>
+  <h2 align="center">What's all this about?</h2>
    <p>I found myself looking for a house to rent with two of my friends, we saw a few 3 bedroom places…but they all the same problem, one small room!</p>
    <p>We began to think about the idea of splitting the rent, i.e. more for the larger room and less for the smaller. We tried to just pick numbers that seemed right, that was ok, but it was arbitrary and subjective. We then tried to scale it by room area alone, that produced huge swings in the rent paid by each room. We then thought, how about using a logarithmic function?</p>
    <p>What this calculator does is split and scale the cost of the total household rent by the logarithm of the relative areas of each room. What that means is this:
@@ -11,7 +12,7 @@
 <ul>2) The logarithm is there because past a point, an ever increasing room size will not bring you as much benefit. So this reduces the amount of rent scaling as the rooms get bigger.</ul>
    </p>
    <p>I’m sure there are plenty of features to add, such as how do we deal with couples sharing a room, how we account for ensuite bathrooms or even include communal areas? Whogetsthesmallroom.com was just a little joke between us, but when I saw that the domain was available, I thought why not!</p>
-   <p>If you feel like contributing, or want to have a nose around the code, then head over to the Github Project!</p>
+   <p>If you feel like contributing, or want to have a nose around the code, then head over to the <a href="http://github.com/HUSSTECH/whogetsthesmallroom">Github</a> project!</p>
    <p>BTW, in the end we did find something with decently sized rooms. We never ended up using our model/calculator, and you probably shouldn’t either.</p>
 
 {% endblock %}
