@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div align="center"><a href="/"><img src="/static/vendor/bootstrap/img/open_house.gif" width = "10%" height="10%"></a></div>
+
+    <div align="center">
+    <h1>Total Rent: {{rent}}</h1>
+    {%set ii = 1%}
+
+    {% for room in rooms %}
+
+    <h3>Room {{ii}}, area {{room}}, Cost: {{price[ii-1]}}  </h3>
+
+    {%set ii = ii+1%}
+
+    {% endfor %}
+
+  </div>
+
+{% endblock %}

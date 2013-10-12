@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div align="center"><h2>Split your rent based on room size!</h2></div>
+    <div align="center"><a href="/"><img src="/static/vendor/bootstrap/img/open_house.gif" width = "20%" height="20%"></a></div>
+
+
+<form id="inputform" method="post" action="/">
+
+<div class="control-group">
+  <label class="control-label">Rent (e.g. weekly, monthly, yearly)</label>
+  <div class="controls">
+    <input id="rent" name="rent" type="number" step="any" placeholder="" class="input-xlarge" required="" min="0">
+  </div>
+</div>
+
+ <p>Approximate Square Area of Each Room (any unit)</p>
+
+<div class="form-inline" id="fields"></div>
+
+<a class="btn btn-success" onclick="createinput()">Add Rooms</a>
+
+<button type="submit" id="calculate" class="btn btn-primary">GO!</button>
+
+</form>
+{% endblock %}
