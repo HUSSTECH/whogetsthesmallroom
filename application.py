@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request
 import math
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 
 @app.route('/', methods=['GET','POST'])
 def result():
@@ -45,4 +45,4 @@ def about():
 	return render_template('about.html', title='About')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()
