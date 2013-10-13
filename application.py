@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request
 import math
 
-application = Flask(__name__,static_url_path='/s')
+application = Flask(__name__,static_url_path='/s') #static_url_pth added to workaround static path issue on eb
 #application.debug = True
 
 @application.route('/', methods=['GET','POST'])
