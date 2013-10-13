@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request
 import math
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 
 @app.route('/', methods=['GET','POST'])
 def result():
@@ -14,10 +14,10 @@ def result():
 		app.logscalerooms = [] #log of room areas
 		app.lognormrooms = [] #log adjusted area of each room as percent
 		app.price = [] #rent for each room based on all of this stuff
-		app.rent = request.form["rent"]
-		app.rooms = request.form.values()
-		app.rooms.remove(app.rent)
-		app.rooms.sort()
+		app.rent = request.form["rent"] #total rent
+		app.rooms = request.form.values() #post request from the form
+		app.rooms.remove(app.rent) #remove the rent from list
+		app.rooms.sort() 
 		app.rooms.reverse()
 
 		app.rent = float(app.rent)
@@ -26,13 +26,13 @@ def result():
 		app.nrooms = len(app.rooms) #number of rooms
 		app.sumrooms = sum(app.rooms) #total area of rooms
 
-		for x in app.rooms:
+		for x in app.rooms: #normalise room area
 			app.normrooms.append(x/app.sumrooms)
-		for x in app.normrooms:
+		for x in app.normrooms: #log of the normalised room areas
 			app.logscalerooms.append(math.log10(x*app.rent))
-		for x in app.logscalerooms:
+		for x in app.logscalerooms: #calc log scale factor for rooms
 			app.lognormrooms.append(x/sum(app.logscalerooms))
-		for x in app.lognormrooms:
+		for x in app.lognormrooms: #do the scaling
 			app.price.append(round(x*app.rent,2))
 
 		app.price.sort()
