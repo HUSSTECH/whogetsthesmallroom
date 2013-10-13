@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request
 import math
 
-application = Flask(__name__)
+application = Flask(__name__,static_url_path='/s')
 #application.debug = True
 
 @application.route('/', methods=['GET','POST'])
