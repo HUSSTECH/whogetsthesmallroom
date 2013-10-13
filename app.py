@@ -45,4 +45,4 @@ def about():
 	return render_template('about.html', title='About')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
