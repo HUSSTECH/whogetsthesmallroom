@@ -17,8 +17,6 @@ def result():
 		application.rent = request.form["rent"] #total rent
 		application.rooms = request.form.values() #post request from the form
 		application.rooms.remove(application.rent) #remove the rent from list
-		application.rooms.sort() 
-		application.rooms.reverse()
 
 		application.rent = float(application.rent)
 		application.rooms = [float(i) for i in application.rooms]
@@ -35,8 +33,11 @@ def result():
 		for x in application.lognormrooms: #do the scaling
 			application.price.append(round(x*application.rent,2))
 
+		#Sort lists in descending order
 		application.price.sort()
 		application.price.reverse()
+		application.rooms.sort() 
+		application.rooms.reverse()	
 
 		return render_template('index2.html', title='WGTSR?',rooms=application.rooms,rent=application.rent,price=application.price)
 
